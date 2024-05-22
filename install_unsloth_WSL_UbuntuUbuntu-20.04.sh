@@ -11,6 +11,13 @@ bash /tmp/$MINICONDA_INSTALLER -b -p $HOME/miniconda
 
 # Initialize Miniconda
 eval "$($HOME/miniconda/bin/conda shell.bash hook)"
+~/miniconda/bin/conda init
+
+# Add Miniconda to the PATH
+echo 'export PATH="$HOME/miniconda/bin:$PATH"' >> ~/.bashrc
+
+# Reload the shell configuration
+source ~/.bashrc
 
 # Create a new conda environment
 conda create --name unsloth_env python=3.10 -y
